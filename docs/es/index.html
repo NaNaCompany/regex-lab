@@ -1,0 +1,78 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Laboratorio Regex · NaNa Lab</title><link rel="stylesheet" href="../style.css">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Prueba coincidencias, grupos de captura y sustituciones de expresiones regulares JavaScript y exporta texto o JSON.">
+<link rel="canonical" href="https://nanalab.kr/regex-lab/es/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/regex-lab/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/regex-lab/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/regex-lab/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/regex-lab/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/regex-lab/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/regex-lab/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/regex-lab/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/regex-lab/es/">
+<meta property="og:title" content="Laboratorio Regex">
+<meta property="og:description" content="Prueba coincidencias, grupos de captura y sustituciones de expresiones regulares JavaScript y exporta texto o JSON.">
+<meta property="og:image" content="https://nanalab.kr/regex-lab/og/es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Laboratorio Regex">
+<meta name="twitter:description" content="Prueba coincidencias, grupos de captura y sustituciones de expresiones regulares JavaScript y exporta texto o JSON.">
+<meta name="twitter:image" content="https://nanalab.kr/regex-lab/og/es.jpg">
+<link rel="stylesheet" href="../public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+<header><a class="brand" href="#">/ Laboratorio Regex /</a><span class="badge">SOLO LOCAL</span><nav class="languages" aria-label="Language"><a href="../" lang="ko">한국어</a><a href="../en/" lang="en">English</a><a href="../es/" lang="es" aria-current="page">Español</a><a href="../zh/" lang="zh">简体中文</a><a href="../ja/" lang="ja">日本語</a><a href="../de/" lang="de">Deutsch</a></nav></header><main><section class="intro"><p class="eyebrow">EXPLORADOR DE TEXTO / 015</p><h1>Busca un patrón,<br><em>revisa el resultado.</em></h1><p>Coincidencias, capturas y reemplazos JavaScript en una vista.<br>La entrada se procesa solo en este navegador.</p></section><section class="workspace"><div class="topline"><h2>Patrón y texto de prueba</h2><button id="example" class="quiet">Cargar ejemplo</button></div><label for="pattern">Patrón regex <span class="muted">Sin barras externas /</span></label><div class="patternline"><span>/</span><input id="pattern" spellcheck="false" value="(?&lt;name&gt;[A-Za-z]+)@(?&lt;domain&gt;[A-Za-z.]+)"><span>/</span></div><fieldset><legend>Indicadores</legend><label><input type="checkbox" data-flag="g" checked>g <span>Todas las coincidencias</span></label><label><input type="checkbox" data-flag="i">i <span>Ignorar mayúsculas</span></label><label><input type="checkbox" data-flag="m">m <span>Anclas multilínea</span></label><label><input type="checkbox" data-flag="s">s <span>Punto incluye salto de línea</span></label><label><input type="checkbox" data-flag="u" checked>u <span>Unicode</span></label><label><input type="checkbox" data-flag="y">y <span>Coincidencia contigua</span></label></fieldset><label for="text">Texto de prueba</label><textarea id="text" spellcheck="false"></textarea><label for="replacement">Cadena de reemplazo <span class="muted">Admite $&amp;, $1, $&lt;name&gt;, $$</span></label><input id="replacement" value="$&lt;name&gt; [at] $&lt;domain&gt;" spellcheck="false"><div class="toolbar"><button id="run">Ejecutar patrón</button><button id="cancel" class="secondary" disabled>Detener</button><p id="status" role="status" aria-live="polite"></p></div><p class="hint">Texto 100.000 caracteres · patrón 1.000 · reemplazo 2.000 · 50 capturas · 500 coincidencias · límite 1 segundo. Sin ejecución automática.</p></section><section class="results"><div class="topline"><h2>Coincidencias resaltadas</h2><span id="count" class="count">—</span></div><pre id="highlight" tabindex="0"></pre><p class="hint">Posiciones UTF-16 desde cero. Las coincidencias vacías se muestran como ◇.</p><div class="subgrid"><section><div class="topline"><h3>Coincidencias y grupos</h3><button id="export" class="quiet" disabled>JSON de resultados</button></div><div id="groups"></div></section><section><div class="topline"><h3>Vista previa de reemplazo</h3><div><button id="copy" class="quiet" disabled>Copiar</button><button id="download" class="quiet" disabled>Descargar texto</button></div></div><pre id="output" tabindex="0"></pre></section></div></section><details class="notes"><summary>Sintaxis y alcance</summary><p>Usa JavaScript RegExp, que puede diferir de PCRE o Python. Sin g solo procesa la primera coincidencia; y exige coincidencias contiguas. En reemplazos, $&amp; es la coincidencia completa, $1 una captura, $&lt;name&gt; un grupo con nombre y $$ un dólar. Ejecuta solo en un Worker separado que termina tras 1 segundo. Si hay más de 500 coincidencias, reemplaza solo las primeras 500 y conserva el resto. Salida máxima: 500.000 caracteres. Recargar borra las entradas.</p><a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects" target="_blank" rel="noreferrer">ECMAScript · norma RegExp</a></details></main><footer><span>De búsqueda a reemplazo, en local.</span><a href="https://nanalab.kr/apps/">More Apps ↗</a></footer><script type="module" src="../app.js"></script>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>

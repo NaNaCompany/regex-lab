@@ -1,0 +1,59 @@
+{
+  "slug": "regex-lab",
+  "url": "https://nanalab.kr/regex-lab/",
+  "languages": [
+    "ko",
+    "en",
+    "es",
+    "zh",
+    "ja",
+    "de"
+  ],
+  "locales": {
+    "ko": {
+      "name": "정규식 실험실",
+      "description": "JavaScript 정규식의 매치·캡처 그룹·치환 결과를 확인하고 텍스트나 JSON으로 저장하세요.",
+      "image_alt": "정규식 실험실"
+    },
+    "en": {
+      "name": "Regex Lab",
+      "description": "Test JavaScript regular-expression matches, capture groups and replacements, then export text or JSON results.",
+      "image_alt": "Regex Lab"
+    },
+    "es": {
+      "name": "Laboratorio Regex",
+      "description": "Prueba coincidencias, grupos de captura y sustituciones de expresiones regulares JavaScript y exporta texto o JSON.",
+      "image_alt": "Laboratorio Regex"
+    },
+    "zh": {
+      "name": "正则表达式实验室",
+      "description": "测试 JavaScript 正则表达式的匹配、捕获组与替换结果，并导出文本或 JSON。",
+      "image_alt": "正则表达式实验室"
+    },
+    "ja": {
+      "name": "正規表現ラボ",
+      "description": "JavaScript正規表現の一致・キャプチャグループ・置換結果を確認し、テキストやJSONで保存できます。",
+      "image_alt": "正規表現ラボ"
+    },
+    "de": {
+      "name": "Regex-Labor",
+      "description": "Testen Sie Treffer, Erfassungsgruppen und Ersetzungen mit JavaScript-RegEx und exportieren Sie die Ergebnisse als Text oder JSON.",
+      "image_alt": "Regex-Labor"
+    },
+    "fr": {
+      "name": "Laboratoire Regex",
+      "description": "Testez les correspondances, groupes de capture et remplacements des expressions régulières JavaScript et exportez du texte ou du JSON.",
+      "image_alt": "Laboratoire Regex"
+    },
+    "pt": {
+      "name": "Laboratório Regex",
+      "description": "Teste correspondências, grupos de captura e substituições de expressões regulares JavaScript e exporte texto ou JSON.",
+      "image_alt": "Laboratório Regex"
+    },
+    "ru": {
+      "name": "Лаборатория регулярных выражений",
+      "description": "Проверяйте совпадения, группы захвата и замены регулярных выражений JavaScript и сохраняйте результат в тексте или JSON.",
+      "image_alt": "Лаборатория регулярных выражений"
+    }
+  }
+}

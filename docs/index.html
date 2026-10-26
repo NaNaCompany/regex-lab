@@ -1,0 +1,78 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>정규식 실험실 · NaNa Lab</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="index,follow">
+<meta name="description" content="JavaScript 정규식의 매치·캡처 그룹·치환 결과를 확인하고 텍스트나 JSON으로 저장하세요.">
+<link rel="canonical" href="https://nanalab.kr/regex-lab/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/regex-lab/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/regex-lab/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/regex-lab/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/regex-lab/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/regex-lab/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/regex-lab/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/regex-lab/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/regex-lab/">
+<meta property="og:title" content="정규식 실험실">
+<meta property="og:description" content="JavaScript 정규식의 매치·캡처 그룹·치환 결과를 확인하고 텍스트나 JSON으로 저장하세요.">
+<meta property="og:image" content="https://nanalab.kr/regex-lab/og/ko.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="정규식 실험실">
+<meta name="twitter:description" content="JavaScript 정규식의 매치·캡처 그룹·치환 결과를 확인하고 텍스트나 JSON으로 저장하세요.">
+<meta name="twitter:image" content="https://nanalab.kr/regex-lab/og/ko.jpg">
+<link rel="stylesheet" href="public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+<header><a class="brand" href="#">/ 정규식 실험실 /</a><span class="badge">LOCAL ONLY</span><nav class="languages" aria-label="Language"><a href="" lang="ko" aria-current="page">한국어</a><a href="en/" lang="en">English</a><a href="es/" lang="es">Español</a><a href="zh/" lang="zh">简体中文</a><a href="ja/" lang="ja">日本語</a><a href="de/" lang="de">Deutsch</a></nav></header><main><section class="intro"><p class="eyebrow">TEXT EXPLORER / 015</p><h1>패턴으로 찾고,<br><em>결과를 확인하세요.</em></h1><p>JavaScript 정규식의 매치·캡처·치환을 한 화면에서.<br>입력은 이 브라우저 안에서만 처리합니다.</p></section><section class="workspace"><div class="topline"><h2>패턴과 테스트 텍스트</h2><button id="example" class="quiet">예제 다시 열기</button></div><label for="pattern">정규식 패턴 <span class="muted">바깥쪽 / 없이 입력</span></label><div class="patternline"><span>/</span><input id="pattern" spellcheck="false" value="(?&lt;name&gt;[A-Za-z]+)@(?&lt;domain&gt;[A-Za-z.]+)"><span>/</span></div><fieldset><legend>플래그</legend><label><input type="checkbox" data-flag="g" checked>g <span>모든 매치</span></label><label><input type="checkbox" data-flag="i">i <span>대소문자 무시</span></label><label><input type="checkbox" data-flag="m">m <span>여러 줄 앵커</span></label><label><input type="checkbox" data-flag="s">s <span>점에 줄바꿈 포함</span></label><label><input type="checkbox" data-flag="u" checked>u <span>유니코드</span></label><label><input type="checkbox" data-flag="y">y <span>연속 매치</span></label></fieldset><label for="text">테스트 텍스트</label><textarea id="text" spellcheck="false"></textarea><label for="replacement">치환 문자열 <span class="muted">$&amp;, $1, $&lt;name&gt;, $$ 지원</span></label><input id="replacement" value="$&lt;name&gt; [at] $&lt;domain&gt;" spellcheck="false"><div class="toolbar"><button id="run">패턴 실행</button><button id="cancel" class="secondary" disabled>실행 중지</button><p id="status" role="status" aria-live="polite"></p></div><p class="hint">텍스트 100,000자 · 패턴 1,000자 · 치환 2,000자 · 캡처 50개 · 매치 500개 · 실행 1초 제한. 자동 실행 없음.</p></section><section class="results"><div class="topline"><h2>매치 하이라이트</h2><span id="count" class="count">—</span></div><pre id="highlight" tabindex="0"></pre><p class="hint">위치는 0부터 세는 UTF-16 인덱스입니다. 빈 매치는 ◇로 표시합니다.</p><div class="subgrid"><section><div class="topline"><h3>매치와 그룹</h3><button id="export" class="quiet" disabled>결과 JSON</button></div><div id="groups"></div></section><section><div class="topline"><h3>치환 미리보기</h3><div><button id="copy" class="quiet" disabled>복사</button><button id="download" class="quiet" disabled>텍스트 다운로드</button></div></div><pre id="output" tabindex="0"></pre></section></div></section><details class="notes"><summary>문법과 사용 범위</summary><p>JavaScript RegExp 문법입니다. PCRE·Python 정규식과 다를 수 있습니다. g를 끄면 첫 매치만 처리하며 y는 현재 위치부터 연속 매치합니다. 치환의 $&amp;는 전체 매치, $1은 캡처, $&lt;name&gt;은 이름 그룹, $$는 달러 기호입니다. 정규식은 별도 Worker에서만 실행하며 1초 뒤 Worker를 종료합니다. 500매치를 초과하면 앞 500개만 치환하고 나머지 원문을 보존합니다. 출력은 500,000자까지입니다. 새로고침하면 입력이 사라집니다.</p><a href="https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects" target="_blank" rel="noreferrer">ECMAScript · RegExp 표준</a></details></main><footer><span>찾기부터 치환까지, 로컬에서.</span><a href="https://nanalab.kr/apps/">More Apps ↗</a></footer><script type="module" src="app.js"></script>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>
